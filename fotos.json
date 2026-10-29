@@ -1,14 +1,62 @@
 [
-  { "fichero": "fotos/hero.jpg", "aspecto": "16:9", "prompt": "Fotografía a sangre, sin bordes ni marcos, que llena todo el encuadre: interior luminoso de una farmacia con óptica de barrio moderna, a la derecha una pared blanca con monturas de gafas expuestas en baldas finas de madera clara iluminadas, al fondo un mostrador de roble y estanterías ordenadas de cajas de parafarmacia blancas y azules sin etiquetas legibles, suelo de terrazo claro, plantas verdes, luz natural de mañana desde un escaparate grande, tonos blanco, azul y verde menta, encuadre horizontal amplio con espacio libre a la izquierda, sin personas, sin texto legible, sin logotipos" },
-  { "fichero": "fotos/franja-1.jpg", "aspecto": "3:4", "prompt": "Detalle vertical de varias monturas de gafas de acetato en tonos carey, azul marino y transparente, colocadas en fila sobre una balda de madera clara de una óptica, fondo blanco desenfocado, luz natural suave lateral, profundidad de campo corta, sin personas, sin texto legible, sin logotipos" },
-  { "fichero": "fotos/franja-2.jpg", "aspecto": "3:4", "prompt": "Gabinete de optometría limpio y moderno visto en vertical: foróptero metálico sobre su brazo, sillón de exploración azul y una pared blanca, luz fría y uniforme, encuadre limpio y nítido, sin personas, sin carta de letras legible, sin texto, sin logotipos" },
-  { "fichero": "fotos/franja-3.jpg", "aspecto": "3:4", "prompt": "Bodegón vertical de dermofarmacia: frascos y tubos de crema blancos sin etiqueta, una hoja de eucalipto y una toalla de algodón verde menta sobre una superficie de piedra blanca, luz natural de ventana, sombras suaves, sin texto legible, sin logotipos, sin personas" },
-  { "fichero": "fotos/franja-4.jpg", "aspecto": "3:4", "prompt": "Interior de farmacia en vertical: cajonera blanca de farmacia con muchos cajones de frente cerrados y tiradores de acero, una cruz verde de farmacia pequeña reflejada en el cristal de una puerta, luz limpia y brillante, sin personas, sin rótulos ni texto legible, sin logotipos" },
-  { "fichero": "fotos/guardia.jpg", "aspecto": "3:4", "prompt": "Fotografía vertical nocturna a sangre: escaparate de una farmacia de barrio con la cruz verde luminosa encendida colgada en la fachada, una ventanilla de guardia iluminada, acera mojada por la lluvia que refleja la luz verde y azul, calle de un ensanche del norte de España con balcones de hierro, ambiente tranquilo, sin personas, sin rótulos ni texto legible, sin logotipos" },
-  { "fichero": "fotos/ofertas.jpg", "aspecto": "3:4", "prompt": "Bodegón vertical de verano e invierno: unas gafas de sol de montura negra, un frasco de protector solar blanco sin etiqueta, un bálsamo labial y unas lentillas en su estuche verde menta sobre una superficie de mármol blanco, sombras marcadas de luz de tarde, colores limpios azul y menta, sin texto legible, sin logotipos" },
-  { "fichero": "fotos/cita.jpg", "aspecto": "3:4", "prompt": "Fotografía vertical a sangre de un gabinete de óptica: autorrefractómetro blanco sobre una mesa regulable, al lado una caja de lentes de prueba abierta con sus aros metálicos ordenados, pared azul suave al fondo, luz uniforme y nítida, encuadre centrado con el aparato en el centro de la imagen, sin personas, sin texto legible, sin logotipos" },
-  { "fichero": "fotos/consejo-1.jpg", "aspecto": "3:2", "prompt": "Gafas de sol deportivas de lente espejada apoyadas sobre una mochila de montaña junto a un sendero nevado del Pirineo navarro, cumbres blancas al fondo bajo un cielo azul intenso, luz brillante de invierno, encuadre horizontal, sin personas, sin texto legible, sin logotipos" },
-  { "fichero": "fotos/consejo-2.jpg", "aspecto": "3:2", "prompt": "Neceser de viaje abierto sobre una cama con sábanas blancas: tiritas, un termómetro digital, un blíster de pastillas sin marcas, un bote de crema solar sin etiqueta y un pequeño frasco de gel, todo ordenado, luz natural de mañana, encuadre horizontal desde arriba, sin texto legible, sin logotipos, sin personas" },
-  { "fichero": "fotos/consejo-3.jpg", "aspecto": "3:2", "prompt": "Escritorio de madera junto a una ventana con un portátil cerrado, unas gafas graduadas de montura fina apoyadas encima y una planta verde, al fondo por la ventana se ven árboles de un parque, luz cálida de tarde, encuadre horizontal tranquilo, sin personas, sin pantallas encendidas, sin texto legible, sin logotipos" },
-  { "fichero": "fotos/contacto.jpg", "aspecto": "3:4", "prompt": "Fachada vertical a pie de calle de una farmacia con óptica: escaparate amplio de cristal con marco azul oscuro, cruz verde apagada sobre la puerta, en el escaparate se ven monturas de gafas y plantas, acera ancha con un banco y árboles de una avenida residencial del norte de España con edificios de ladrillo y balcones, luz suave de mañana, sin personas, sin rótulos ni texto legible, sin logotipos" }
+  {
+    "fichero": "fotos/hero.jpg",
+    "aspecto": "16:9",
+    "prompt": "Fotografía a sangre, sin bordes ni marcos, que llena todo el encuadre: interior luminoso de una farmacia con óptica de barrio moderna, a la derecha una pared blanca con monturas de gafas expuestas en baldas finas de madera clara iluminadas, al fondo un mostrador de roble y estanterías ordenadas de cajas de parafarmacia blancas y azules sin etiquetas legibles, suelo de terrazo claro, plantas verdes, luz natural de mañana desde un escaparate grande, tonos blanco, azul y verde menta, encuadre horizontal amplio con espacio libre a la izquierda, sin personas, sin texto legible, sin logotipos"
+  },
+  {
+    "fichero": "fotos/franja-1.jpg",
+    "aspecto": "3:4",
+    "prompt": "Detalle vertical de varias monturas de gafas de acetato en tonos carey, azul marino y transparente, colocadas en fila sobre una balda de madera clara de una óptica, fondo blanco desenfocado, luz natural suave lateral, profundidad de campo corta, lentes completamente lisas y transparentes sin grabados ni marcas ni inscripciones en las patillas ni en los cristales, sin personas, sin texto legible, sin logotipos"
+  },
+  {
+    "fichero": "fotos/franja-2.jpg",
+    "aspecto": "3:4",
+    "prompt": "Gabinete de optometría limpio y moderno visto en vertical: foróptero metálico sobre su brazo, sillón de exploración azul y una pared blanca, luz fría y uniforme, encuadre limpio y nítido, sin personas, sin carta de letras legible, sin texto, sin logotipos"
+  },
+  {
+    "fichero": "fotos/franja-3.jpg",
+    "aspecto": "3:4",
+    "prompt": "Bodegón vertical de dermofarmacia: frascos y tubos de crema blancos sin etiqueta, una hoja de eucalipto y una toalla de algodón verde menta sobre una superficie de piedra blanca, luz natural de ventana, sombras suaves, sin texto legible, sin logotipos, sin personas"
+  },
+  {
+    "fichero": "fotos/franja-4.jpg",
+    "aspecto": "3:4",
+    "prompt": "Interior de farmacia en vertical: cajonera blanca de farmacia con muchos cajones de frente cerrados y tiradores de acero, una cruz verde de farmacia pequeña reflejada en el cristal de una puerta, luz limpia y brillante, sin personas, sin rótulos ni texto legible, sin logotipos"
+  },
+  {
+    "fichero": "fotos/guardia.jpg",
+    "aspecto": "3:4",
+    "prompt": "Fotografía vertical nocturna a sangre: escaparate de una farmacia de barrio con la cruz verde luminosa encendida colgada en la fachada, una ventanilla de guardia iluminada, acera mojada por la lluvia que refleja la luz verde y azul, calle de un ensanche del norte de España con balcones de hierro, ambiente tranquilo, sin personas, sin rótulos ni texto legible, sin logotipos"
+  },
+  {
+    "fichero": "fotos/ofertas.jpg",
+    "aspecto": "3:4",
+    "prompt": "Bodegón vertical de verano e invierno: unas gafas de sol de montura negra, un frasco de protector solar blanco sin etiqueta, un bálsamo labial y unas lentillas en su estuche verde menta sobre una superficie de mármol blanco, sombras marcadas de luz de tarde, colores limpios azul y menta, sin texto legible, sin logotipos"
+  },
+  {
+    "fichero": "fotos/cita.jpg",
+    "aspecto": "3:4",
+    "prompt": "Fotografía vertical a sangre de un gabinete de óptica: autorrefractómetro blanco sobre una mesa regulable, al lado una caja de lentes de prueba abierta con sus aros metálicos ordenados, pared azul suave al fondo, luz uniforme y nítida, encuadre centrado con el aparato en el centro de la imagen, sin personas, sin texto legible, sin logotipos"
+  },
+  {
+    "fichero": "fotos/consejo-1.jpg",
+    "aspecto": "3:2",
+    "prompt": "Gafas de sol deportivas de lente espejada apoyadas sobre una mochila de montaña lisa de color azul sin ningún emblema, etiqueta ni marca cosida junto a un sendero nevado del Pirineo navarro, cumbres blancas al fondo bajo un cielo azul intenso, luz brillante de invierno, encuadre horizontal, sin personas, sin texto legible, sin logotipos"
+  },
+  {
+    "fichero": "fotos/consejo-2.jpg",
+    "aspecto": "3:2",
+    "prompt": "Neceser de viaje abierto sobre una cama con sábanas blancas: tiritas, un termómetro digital, un blíster de pastillas sin marcas, un bote de crema solar sin etiqueta y un pequeño frasco de gel, todo ordenado, luz natural de mañana, encuadre horizontal desde arriba, sin texto legible, sin logotipos, sin personas"
+  },
+  {
+    "fichero": "fotos/consejo-3.jpg",
+    "aspecto": "3:2",
+    "prompt": "Escritorio de madera junto a una ventana con un portátil cerrado, unas gafas graduadas de montura fina apoyadas encima y una planta verde, al fondo por la ventana se ven árboles de un parque, luz cálida de tarde, encuadre horizontal tranquilo, sin personas, sin pantallas encendidas, sin texto legible, sin logotipos"
+  },
+  {
+    "fichero": "fotos/contacto.jpg",
+    "aspecto": "3:4",
+    "prompt": "Fachada vertical a pie de calle de una farmacia con óptica: escaparate amplio de cristal con marco azul oscuro, cruz verde apagada sobre la puerta, en el escaparate se ven monturas de gafas y plantas, acera ancha con un banco y árboles de una avenida residencial del norte de España con edificios de ladrillo y balcones, luz suave de mañana, sin personas, sin rótulos ni texto legible, sin logotipos"
+  }
 ]
