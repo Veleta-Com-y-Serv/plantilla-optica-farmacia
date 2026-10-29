@@ -1,0 +1,62 @@
+---
+// Farmacia de guardia: banda azul noche a todo el ancho. Foto a sangre a la izquierda (si hay `imagen`),
+// cruz luminosa con el teléfono de guardia enorme (`destacado`: titulo, telefono, texto) y la lista de
+// próximos turnos (`turnos`: fecha, horas, texto). Sin turnos ni destacado, solo el texto.
+import { seccion, site, tel } from '../../data/site';
+import { altSeccion } from '../../lib/seo';
+import Banda from '../ui/Banda.astro';
+import Titular from '../ui/Titular.astro';
+import Imagen from '../ui/Imagen.astro';
+import Icono from '../ui/Icono.astro';
+interface Props { id: string }
+const s = seccion(Astro.props.id);
+const d = (s?.destacado ?? {}) as { titulo?: string; telefono?: string; texto?: string };
+const telefono = String(d.telefono ?? '').trim() || site.contacto.telefono;
+const turnos = s ? s.turnos.filter((t) => t && t.fecha) : [];
+---
+
+{
+  s && (
+    <Banda id={Astro.props.id} tono="noche" sangre sinRitmo class={s.imagen ? 'guardia guardia--con-foto' : 'guardia'}>
+      {s.imagen && (
+        <div class="guardia-foto">
+          <Imagen src={s.imagen} alt={altSeccion(s)} ancho={1200} alto={1400} />
+        </div>
+      )}
+      <div class="guardia-cuerpo">
+        <Titular antetitulo={s.antetitulo} titulo={s.titulo} texto={s.texto} />
+        {(d.titulo || telefono) && (
+          <div class="guardia-aviso">
+            <span class="cruz-luz" aria-hidden="true" />
+            <div class="min-w-0">
+              {d.titulo && <p class="guardia-aviso-titulo">{d.titulo}</p>}
+              {telefono && (
+                <a class="guardia-telefono" href={tel(telefono)}>
+                  {telefono}
+                </a>
+              )}
+              {d.texto && <p class="guardia-aviso-texto">{d.texto}</p>}
+            </div>
+          </div>
+        )}
+        {turnos.length > 0 && (
+          <ul class="guardia-turnos">
+            {turnos.map((t) => (
+              <li>
+                <Icono nombre="luna" tam={20} class="shrink-0 text-acento" />
+                <span class="guardia-fecha">{t.fecha}</span>
+                {t.horas && <span class="guardia-horas">{t.horas}</span>}
+                {t.texto && <span class="guardia-nota">{t.texto}</span>}
+              </li>
+            ))}
+          </ul>
+        )}
+        {s.cta?.url && (
+          <a class="btn mt-10" href={s.cta.url}>
+            {s.cta.texto} <Icono nombre="flecha" tam={18} />
+          </a>
+        )}
+      </div>
+    </Banda>
+  )
+}

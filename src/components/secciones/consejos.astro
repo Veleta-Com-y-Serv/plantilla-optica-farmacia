@@ -1,0 +1,69 @@
+---
+// Consejos de salud (`noticias`: fecha, titulo, texto, imagen, url): el primero a lo ancho, en fila 50/50
+// con la foto a sangre hasta el borde izquierdo; el resto en rejilla de hasta 3 columnas con foto de
+// esquinas vivas y número. Sin foto, la ficha queda solo con texto.
+import { seccion } from '../../data/site';
+import { altFicha } from '../../lib/seo';
+import Banda from '../ui/Banda.astro';
+import Titular from '../ui/Titular.astro';
+import Imagen from '../ui/Imagen.astro';
+import Icono from '../ui/Icono.astro';
+interface Props { id: string }
+const s = seccion(Astro.props.id);
+const consejos = s ? s.noticias.filter((n) => n && n.titulo) : [];
+const [primero, ...resto] = consejos;
+---
+
+{
+  s && (
+    <Banda id={Astro.props.id} tono="clara" sangre class="consejos">
+      <div class="contenedor">
+        <Titular partido antetitulo={s.antetitulo} titulo={s.titulo} texto={s.texto} />
+      </div>
+      {primero && (
+        <article class:list={['consejo-grande', { 'consejo-grande--con-foto': !!primero.imagen }]}>
+          {primero.imagen && (
+            <div class="consejo-grande-foto">
+              <Imagen src={primero.imagen} alt={altFicha(primero)} ancho={1200} alto={800} />
+            </div>
+          )}
+          <div class="consejo-grande-cuerpo">
+            <p class="consejo-meta">
+              <span>01</span>
+              {primero.fecha && <span>{primero.fecha}</span>}
+            </p>
+            <h3>{primero.titulo}</h3>
+            {primero.texto && <p class="consejo-texto">{primero.texto}</p>}
+            {primero.url && (
+              <a class="enlace-flecha" href={primero.url}>
+                Leer el consejo <Icono nombre="flecha" tam={18} />
+              </a>
+            )}
+          </div>
+        </article>
+      )}
+      {resto.length > 0 && (
+        <div class="contenedor">
+          <ul class="consejos-rejilla" style={`--n:${Math.min(resto.length, 3)}`}>
+            {resto.map((n, i) => (
+              <li>
+                {n.imagen && <Imagen src={n.imagen} alt={altFicha(n)} ancho={900} alto={600} class="consejo-foto" />}
+                <p class="consejo-meta">
+                  <span>{String(i + 2).padStart(2, '0')}</span>
+                  {n.fecha && <span>{n.fecha}</span>}
+                </p>
+                <h3>{n.titulo}</h3>
+                {n.texto && <p class="consejo-texto">{n.texto}</p>}
+                {n.url && (
+                  <a class="enlace-flecha" href={n.url}>
+                    Leer el consejo <Icono nombre="flecha" tam={18} />
+                  </a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </Banda>
+  )
+}

@@ -1,0 +1,26 @@
+---
+// Cifras (`items`: titulo = la cifra, texto = qué es): banda menta a todo el ancho con números enormes
+// separados por líneas finas, 2 columnas en móvil y 4 en escritorio. Sin cifras no se pinta la sección.
+import { seccion } from '../../data/site';
+import Banda from '../ui/Banda.astro';
+import Titular from '../ui/Titular.astro';
+interface Props { id: string }
+const s = seccion(Astro.props.id);
+const cifras = s ? s.items.filter((it) => it && it.titulo) : [];
+---
+
+{
+  s && cifras.length > 0 && (
+    <Banda id={Astro.props.id} tono="menta" class="cifras">
+      <Titular partido antetitulo={s.antetitulo} titulo={s.titulo} texto={s.texto} />
+      <ul class="cifras-rejilla" style={`--n:${Math.min(cifras.length, 4)}`}>
+        {cifras.map((c) => (
+          <li>
+            <span class="cifras-numero">{c.titulo}</span>
+            {c.texto && <span class="cifras-texto">{c.texto}</span>}
+          </li>
+        ))}
+      </ul>
+    </Banda>
+  )
+}

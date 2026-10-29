@@ -1,0 +1,82 @@
+---
+// Contacto: fila 50/50 a sangre. A la izquierda, datos (site.yaml → contacto), horario por días
+// (`horario`: dia, horas) y formulario mailto con desplegable de motivo (`opciones`, separadas por «;»);
+// a la derecha, la foto de la fachada (`imagen`) hasta el borde de la ventana con el botón «Cómo llegar».
+import { seccion, site, tel, mapa, whatsapp } from '../../data/site';
+import { altSeccion } from '../../lib/seo';
+import Banda from '../ui/Banda.astro';
+import Titular from '../ui/Titular.astro';
+import Imagen from '../ui/Imagen.astro';
+import Icono from '../ui/Icono.astro';
+import FormularioContacto from '../ui/FormularioContacto.astro';
+interface Props { id: string }
+const s = seccion(Astro.props.id);
+const c = site.contacto;
+const horario = s ? s.horario.filter((h) => h && (h.dia || h.horas)) : [];
+const opciones = typeof s?.opciones === 'string' ? s.opciones : '';
+---
+
+{
+  s && (
+    <Banda id={Astro.props.id} tono="clara" sangre sinRitmo class={s.imagen ? 'contacto contacto--con-foto' : 'contacto'}>
+      <div class="contacto-cuerpo">
+        <Titular antetitulo={s.antetitulo} titulo={s.titulo} texto={s.texto} />
+        <div class="contacto-datos">
+          <ul class="contacto-lista">
+            {c.direccion && (
+              <li>
+                <Icono nombre="mapa" class="shrink-0 text-primario" />
+                <a href={mapa(c.direccion)} rel="noopener" target="_blank">{c.direccion}</a>
+              </li>
+            )}
+            {c.telefono && (
+              <li>
+                <Icono nombre="telefono" class="shrink-0 text-primario" />
+                <a href={tel(c.telefono)}>{c.telefono}</a>
+              </li>
+            )}
+            {c.whatsapp && (
+              <li>
+                <Icono nombre="whatsapp" class="shrink-0 text-primario" />
+                <a href={whatsapp(c.whatsapp)} rel="noopener" target="_blank">{c.whatsapp}</a>
+              </li>
+            )}
+            {c.email && (
+              <li>
+                <Icono nombre="correo" class="shrink-0 text-primario" />
+                <a class="break-all" href={`mailto:${c.email}`}>{c.email}</a>
+              </li>
+            )}
+            {!horario.length && c.horario && (
+              <li>
+                <Icono nombre="reloj" class="shrink-0 text-primario" />
+                {c.horario}
+              </li>
+            )}
+          </ul>
+          {horario.length > 0 && (
+            <dl class="contacto-horario">
+              {horario.map((h) => (
+                <div>
+                  <dt>{h.dia}</dt>
+                  <dd>{h.horas}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
+        </div>
+        <FormularioContacto boton="Enviar consulta" motivos={opciones} />
+      </div>
+      {s.imagen && (
+        <div class="contacto-foto">
+          <Imagen src={s.imagen} alt={altSeccion(s)} ancho={1200} alto={1400} />
+          {c.direccion && (
+            <a class="btn contacto-mapa" href={mapa(c.direccion)} rel="noopener" target="_blank">
+              <Icono nombre="mapa" tam={18} /> Cómo llegar
+            </a>
+          )}
+        </div>
+      )}
+    </Banda>
+  )
+}

@@ -1,0 +1,72 @@
+---
+// Portada a pantalla casi completa: foto a sangre desenfocada con la lente nítida (Lente.astro), velo azul
+// noche, título enorme con la última palabra en menta, dos botones y, abajo, la franja blanca de
+// utilidades de borde a borde (`items`: titulo, texto, icono). Si es la primera sección, la cabecera
+// queda transparente encima hasta que bajas (script de abajo).
+import { seccion, partirTitulo } from '../../data/site';
+import { altHero } from '../../lib/seo';
+import Lente from '../ui/Lente.astro';
+import Icono from '../ui/Icono.astro';
+interface Props { id: string; primera?: boolean }
+const { id, primera = false } = Astro.props;
+const s = seccion(id);
+const [cuerpo, ultima] = partirTitulo(s?.titulo);
+const franja = s ? s.items.filter((it) => it && it.titulo) : [];
+---
+
+{
+  s && (
+    <section id={id} class:list={['hero', { 'hero--primera': primera }]} data-transparente={primera ? '' : undefined}>
+      <div class="hero-escena">
+        <Lente src={s.imagen} alt={altHero()} prioridad={primera} class="hero-lente" />
+        <div class="hero-velo" aria-hidden="true" />
+        <div class="contenedor hero-contenido">
+          {s.antetitulo && <p class="antetitulo">{s.antetitulo}</p>}
+          <h1 class="hero-titulo">
+            {cuerpo}
+            <span class="resalte">{ultima}</span>
+          </h1>
+          {s.texto && <p class="hero-texto">{s.texto}</p>}
+          {(s.cta?.url || s.cta_secundario?.url) && (
+            <div class="hero-botones">
+              {s.cta?.url && (
+                <a class="btn" href={s.cta.url}>
+                  {s.cta.texto} <Icono nombre="flecha" tam={18} />
+                </a>
+              )}
+              {s.cta_secundario?.url && <a class="btn-sec btn-sec--claro" href={s.cta_secundario.url}>{s.cta_secundario.texto}</a>}
+            </div>
+          )}
+        </div>
+      </div>
+      {franja.length > 0 && (
+        <ul class="hero-franja" style={`--n:${Math.min(franja.length, 4)}`}>
+          {franja.map((it) => (
+            <li>
+              <span class="icono-lente"><Icono nombre={it.icono} tam={22} /></span>
+              <span>
+                <span class="hero-franja-titulo">{it.titulo}</span>
+                {it.texto && <span class="hero-franja-texto">{it.texto}</span>}
+              </span>
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+  )
+}
+{
+  s && primera && (
+    <script is:inline>
+      (function () {
+        var c = document.querySelector('.cabecera');
+        if (!c) return;
+        var menu = c.querySelector('details');
+        function poner() { c.classList.toggle('es-transparente', window.scrollY < 24 && !(menu && menu.open)); }
+        poner();
+        window.addEventListener('scroll', poner, { passive: true });
+        if (menu) menu.addEventListener('toggle', poner);
+      })();
+    </script>
+  )
+}

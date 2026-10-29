@@ -1,0 +1,93 @@
+# Metadatos de la plantilla para el catálogo de NoExpertise.
+id: optica-farmacia
+nombre: Óptica y farmacia
+descripcion: Web nítida para farmacias, ópticas y ortopedias, con guardias, promociones y revisión visual.
+sectores:
+  - { id: optica, nombre: Óptica }
+  - { id: farmacia, nombre: Farmacia }
+  - { id: ortopedia, nombre: Ortopedia }
+  - { id: audiologia, nombre: Audiología }
+  - { id: parafarmacia, nombre: Parafarmacia }
+secciones:
+  - { id: hero, nombre: Portada }
+  - { id: servicios, nombre: Servicios }
+  - { id: guardia, nombre: Farmacia de guardia }
+  - { id: ofertas, nombre: Promociones }
+  - { id: cita, nombre: Revisión visual }
+  - { id: marcas, nombre: Marcas }
+  - { id: equipo, nombre: Equipo }
+  - { id: cifras, nombre: Cifras }
+  - { id: consejos, nombre: Consejos de salud }
+  - { id: preguntas, nombre: Preguntas frecuentes }
+  - { id: contacto, nombre: Contacto }
+estilo: nitido
+plan_minimo: gratis
+version: 1.0.0
+base: astrowind
+demo_url: https://demo-plantilla-optica-farmacia.noexpertise.com
+activa: true
+orden: 450
+
+# Asistente de puesta en marcha (NoExpertise): un paso por pantalla. Rutas del site sin índices;
+# tipos: texto y lista (la IA propone), datos, fotos, eleccion (colores y logo) y repaso.
+asistente:
+  - id: negocio
+    titulo: "Tu farmacia u óptica"
+    pregunta: "¿Cómo se llama tu negocio y qué ofrecéis: farmacia, óptica, audiología, ortopedia…?"
+    ayuda: "Qué hacéis, en qué barrio o pueblo estáis y qué os diferencia."
+    tipo: texto
+    campos: [nombre, eslogan, seo.titulo, seo.descripcion, secciones.hero.antetitulo, secciones.hero.titulo, secciones.hero.texto, secciones.hero.items]
+  - id: contacto
+    titulo: "Cómo te encuentran"
+    pregunta: "¿Dónde estáis, en qué horario abrís y cómo os pueden llamar o escribir?"
+    ayuda: "Solo lo que quieras que vean tus clientes. Lo que dejes vacío no sale en tu web."
+    tipo: datos
+    campos: [contacto.telefono, contacto.whatsapp, contacto.email, contacto.direccion, contacto.horario, redes.instagram, redes.facebook]
+  - id: servicios
+    titulo: "Servicios"
+    pregunta: "¿Qué servicios ofrecéis? Uno por línea y, si tenéis farmacia y óptica, di a cuál pertenece cada uno."
+    tipo: texto
+    campos: [secciones.servicios.titulo, secciones.servicios.texto, secciones.servicios.items]
+  - id: guardia
+    titulo: "Farmacia de guardia"
+    pregunta: "¿Hacéis guardias? Cuéntame los próximos turnos (día y horas) y el teléfono de guardia."
+    ayuda: "Si no hacéis guardias, salta este paso y oculta el apartado en Contenido."
+    tipo: lista
+    campos: [secciones.guardia.turnos]
+  - id: ofertas
+    titulo: "Promociones"
+    pregunta: "¿Tenéis alguna promoción ahora? Escribe cada una con su precio o descuento y hasta cuándo dura."
+    ayuda: "Es opcional: si no tienes promociones, salta este paso."
+    tipo: lista
+    campos: [secciones.ofertas.ofertas]
+  - id: cita
+    titulo: "Revisión visual"
+    pregunta: "¿Cómo se pide cita para revisarse la vista o la audición? Cuéntame los pasos."
+    tipo: texto
+    campos: [secciones.cita.titulo, secciones.cita.texto, secciones.cita.items]
+  - id: equipo
+    titulo: "Tu equipo"
+    pregunta: "¿Quién forma el equipo? Nombre y qué hace cada uno, uno por línea."
+    ayuda: "Las fotos las pones luego en Contenido."
+    tipo: lista
+    campos: [secciones.equipo.personas]
+  - id: preguntas
+    titulo: "Preguntas frecuentes"
+    pregunta: "¿Qué os preguntan más a menudo en el mostrador? Escribe cada pregunta y lo que respondéis."
+    ayuda: "Si lo prefieres, añádelas luego en Contenido."
+    tipo: lista
+    campos: [secciones.preguntas.preguntas]
+  - id: fotos
+    titulo: "Tus fotos"
+    pregunta: "Pon una foto de portada y, si quieres, alguna más del local, del gabinete o de la fachada."
+    ayuda: "Sube las tuyas o elige una del banco. Las que no cambies se quedan como están."
+    tipo: fotos
+    campos: [secciones.hero.imagen, secciones.servicios.galeria, secciones.guardia.imagen, secciones.ofertas.imagen, secciones.cita.imagen, secciones.contacto.imagen]
+  - id: aspecto
+    titulo: "Colores y logo"
+    pregunta: "Elige los colores de tu web y, si tienes, tu logo."
+    tipo: eleccion
+    campos: [colores.primario, colores.acento, logo]
+  - id: repaso
+    titulo: "Repaso"
+    tipo: repaso

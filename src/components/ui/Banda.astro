@@ -1,0 +1,11 @@
+---
+// Banda a todo el ancho de la ventana. Adaptado de AstroWind (WidgetWrapper.astro), © onWidget, licencia MIT (LICENSE-ASTROWIND.md).
+// `tono`: clara | suave | menta | azul | noche (fondo pleno de borde a borde). `sangre`: sin contenedor
+// (el componente pone su propia rejilla a sangre); si no, el contenido va en .contenedor (90 rem, 16 px de margen en móvil).
+interface Props { id?: string; tono?: string; class?: string; contenedor?: string; sangre?: boolean; etiqueta?: string; sinRitmo?: boolean }
+const { id, tono = 'clara', class: clase = '', contenedor = '', sangre = false, etiqueta, sinRitmo = false } = Astro.props;
+---
+
+<section class:list={['banda', `banda--${tono}`, { 'banda--ritmo': !sinRitmo }, clase]} id={id} aria-label={etiqueta}>
+  {sangre ? <slot /> : <div class:list={['contenedor', contenedor]}><slot /></div>}
+</section>

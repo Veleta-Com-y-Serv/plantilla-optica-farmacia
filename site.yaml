@@ -1,0 +1,179 @@
+# Contenido de la web. Es lo único que rellena la plataforma NoExpertise.
+# Las secciones se muestran en el orden de este fichero. Para ocultar una: activa: false.
+# Apartado nuevo: un id propio (es su ancla, /#id) con `tipo:` = el diseño de otra sección o `texto`.
+nombre: Farmacia y Óptica Zuhaitz
+eslogan: Farmacia, óptica, audiología y ortopedia en Iturrama, Pamplona.
+sector: farmacia
+logo: ""          # ruta a una imagen en public/ (p. ej. /logo.svg). Vacío = nombre en texto.
+colores:
+  primario: "#1747a6"
+  acento: "#5fe0b4"
+  fondo: "#ffffff"
+  texto: "#0b1b33"
+contacto:
+  telefono: "948 21 70 35"
+  email: hola@farmaciazuhaitz.es
+  direccion: "Calle Monasterio de Iranzu 14, 31011 Pamplona (Navarra)"
+  horario: "Lunes a viernes, de 9:00 a 21:30. Sábados, de 9:30 a 14:00."
+  whatsapp: "+34 644 21 70 35"
+redes:
+  instagram: https://www.instagram.com/
+  facebook: https://www.facebook.com/
+  linkedin: ""
+menu:
+  - { texto: Servicios, url: "/#servicios" }
+  - { texto: Guardia, url: "/#guardia" }
+  - { texto: Promociones, url: "/#ofertas" }
+  - { texto: Revisión visual, url: "/#cita" }
+  - { texto: Consejos, url: "/#consejos" }
+  - { texto: Contacto, url: "/#contacto" }
+boton_cabecera: { texto: Pedir revisión, url: "/#cita" }
+seo:
+  titulo: Farmacia y Óptica Zuhaitz · Óptica y farmacia en Pamplona
+  descripcion: "Farmacia y óptica en Iturrama (Pamplona): revisión de la vista gratis, gafas y lentillas, audífonos, ortopedia, dermofarmacia y turnos de guardia."
+  tipo: Pharmacy
+marca_pie: true
+
+secciones:
+  hero:
+    activa: true
+    antetitulo: Farmacia y óptica en Iturrama
+    titulo: Ves mejor. Te cuidas mejor.
+    texto: "Farmacia, óptica, audiología y ortopedia en el mismo mostrador. Revisión de la vista sin coste y consejo de farmacéutico sin cita."
+    imagen: /fotos/hero.jpg
+    cta: { texto: Pedir revisión visual, url: "/#cita" }
+    cta_secundario: { texto: Ver la guardia, url: "/#guardia" }
+    items:
+      - { titulo: "Abierto de 9:00 a 21:30", texto: De lunes a viernes, icono: reloj }
+      - { titulo: Revisión visual sin coste, texto: Con cita en el día, icono: ojo }
+      - { titulo: Encargos por WhatsApp, texto: Te lo guardamos en mostrador, icono: whatsapp }
+      - { titulo: Farmacia de guardia, texto: Consulta los próximos turnos, icono: cruz }
+
+  servicios:
+    activa: true
+    antetitulo: Lo que hacemos
+    titulo: Dos mostradores, el mismo cuidado
+    texto: "A un lado, la farmacia de siempre del barrio. Al otro, una óptica con gabinete de optometría y audiología. Entras por la misma puerta."
+    items:
+      - { titulo: Graduación de la vista, texto: "Revisión completa con optometrista colegiado, para adultos y niños.", icono: ojo, categoria: Óptica }
+      - { titulo: Gafas graduadas y de sol, texto: "Monturas de acetato y titanio, lentes progresivas y filtros para pantallas.", icono: gafas, categoria: Óptica }
+      - { titulo: Lentes de contacto, texto: "Adaptación, prueba y seguimiento de lentillas diarias, mensuales y de noche.", icono: lentilla, categoria: Óptica }
+      - { titulo: Audiología y audífonos, texto: "Prueba de audición, adaptación de audífonos y limpieza de los que ya llevas.", icono: oido, categoria: Óptica }
+      - { titulo: Receta electrónica y encargos, texto: "Dispensación con tu tarjeta sanitaria y encargos que llegan en el día.", icono: receta, categoria: Farmacia }
+      - { titulo: Consejo y seguimiento, texto: "Toma de tensión, control de glucosa y revisión de tu medicación.", icono: corazon, categoria: Farmacia }
+      - { titulo: Dermofarmacia y nutrición, texto: "Cuidado de la piel, protección solar e infantil, con muestras para probar.", icono: hoja, categoria: Farmacia }
+      - { titulo: Ortopedia, texto: "Medias de compresión, plantillas, fajas y ayudas para casa con medición.", icono: muleta, categoria: Farmacia }
+    galeria:
+      - /fotos/franja-1.jpg
+      - /fotos/franja-2.jpg
+      - /fotos/franja-3.jpg
+      - /fotos/franja-4.jpg
+
+  guardia:
+    activa: true
+    antetitulo: Farmacia de guardia
+    titulo: De guardia cuando más hace falta
+    texto: "Formamos parte del turno de guardias de Pamplona. Estos son nuestros próximos turnos; el resto de noches, te decimos en el teléfono cuál es la farmacia de guardia más cercana."
+    imagen: /fotos/guardia.jpg
+    destacado: { titulo: Teléfono de guardia, telefono: "948 21 70 36", texto: "Llama al timbre de la ventanilla: te atendemos sin que tengas que entrar." }
+    turnos:
+      - { fecha: Sábado 7 de noviembre, horas: "9:30 a 9:30 del domingo", texto: Guardia de 24 horas }
+      - { fecha: Jueves 19 de noviembre, horas: "21:30 a 9:00", texto: Guardia de noche }
+      - { fecha: Sábado 28 de noviembre, horas: "14:00 a 22:00", texto: Guardia de tarde }
+      - { fecha: Domingo 6 de diciembre, horas: "9:30 a 9:30 del lunes", texto: Guardia de 24 horas }
+
+  ofertas:
+    activa: true
+    antetitulo: Promociones
+    titulo: Este mes, en la farmacia
+    texto: "Promociones del mes en óptica y parafarmacia. Pregúntanos en el mostrador o por WhatsApp."
+    imagen: /fotos/ofertas.jpg
+    ofertas:
+      - { titulo: Segundas gafas de sol graduadas, texto: "Al hacerte unas gafas progresivas, las segundas de sol graduadas a mitad de precio.", precio: "-50 %", validez: Hasta el 30 de noviembre }
+      - { titulo: Lentillas para tres meses, texto: "Lentillas mensuales y líquido de mantenimiento en un solo pack.", precio: "39 €", validez: Mientras haya existencias }
+      - { titulo: Revisión de audición, texto: "Prueba auditiva completa y limpieza de audífonos de cualquier marca.", precio: Sin coste, validez: Con cita previa }
+      - { titulo: Cuidado de invierno, texto: "Cremas de manos, bálsamos labiales y sueros de farmacia.", precio: "3x2", validez: Hasta el 15 de diciembre }
+    nota: "Promociones no acumulables entre sí. Consulta las condiciones en la farmacia."
+    cta: { texto: Preguntar por WhatsApp, url: "/#contacto" }
+
+  cita:
+    activa: true
+    antetitulo: Revisión visual
+    titulo: Tu graduación en veinte minutos
+    texto: "Te revisa un óptico-optometrista colegiado en un gabinete propio. Sin coste y sin compromiso de compra."
+    imagen: /fotos/cita.jpg
+    cta: { texto: Pedir cita, url: "/#contacto" }
+    items:
+      - { titulo: Pide cita, texto: "Por WhatsApp, por teléfono o en el mostrador. Normalmente, para el mismo día." }
+      - { titulo: Te graduamos, texto: "Agudeza visual, presión ocular y visión de cerca, con explicación de cada prueba." }
+      - { titulo: Eliges con calma, texto: "Te enseñamos monturas y lentes para tu graduación, con el presupuesto por escrito." }
+
+  marcas:
+    activa: true
+    antetitulo: Marcas
+    titulo: Lo que nos gusta recomendar
+    texto: "Monturas, lentes y cosmética de casas pequeñas y laboratorios que conocemos bien."
+    items:
+      - { titulo: Arkupe, texto: Monturas de acetato }
+      - { titulo: Bidasoa Optics, texto: Gafas de sol }
+      - { titulo: Lente Clara, texto: Lentes progresivas }
+      - { titulo: Iturri Dermo, texto: Dermocosmética }
+      - { titulo: Ezpela, texto: Cosmética natural }
+      - { titulo: Orbaiz, texto: Monturas de titanio }
+      - { titulo: Txiki Vista, texto: Gafas infantiles }
+      - { titulo: Entzun, texto: Audífonos }
+
+  equipo:
+    activa: true
+    antetitulo: Equipo
+    titulo: Te atienden por tu nombre
+    texto: "Farmacéuticas, optometrista y audioprotesista. Llevamos años en el barrio y nos gusta explicar las cosas despacio."
+    personas:
+      - { nombre: Itziar Goñi, cargo: Farmacéutica titular, foto: /placeholders/persona.svg, texto: Dermofarmacia y nutrición }
+      - { nombre: Mikel Arbizu, cargo: Óptico-optometrista, foto: /placeholders/persona.svg, texto: Contactología y visión infantil }
+      - { nombre: Raquel Sanz, cargo: Farmacéutica adjunta, foto: /placeholders/persona.svg, texto: Seguimiento de tratamientos }
+      - { nombre: Javier Lacasta, cargo: Audioprotesista, foto: /placeholders/persona.svg, texto: Adaptación de audífonos }
+
+  cifras:
+    activa: true
+    antetitulo: En el barrio
+    titulo: Cerca de ti, todos los días
+    items:
+      - { titulo: "38", texto: Años en Iturrama }
+      - { titulo: "4", texto: Profesionales colegiados }
+      - { titulo: "+800", texto: Monturas en exposición }
+      - { titulo: "24 h", texto: En los turnos de guardia }
+
+  consejos:
+    activa: true
+    antetitulo: Consejos de salud
+    titulo: Lo que te contaríamos en el mostrador
+    texto: "Consejos cortos de nuestras farmacéuticas y de nuestro optometrista."
+    noticias:
+      - { fecha: Noviembre, titulo: "Gafas de sol también en invierno, y más en la nieve", texto: "La nieve refleja casi toda la luz del sol. Si subes al Pirineo, lleva gafas con filtro de categoría alta y protección lateral.", imagen: /fotos/consejo-1.jpg }
+      - { fecha: Octubre, titulo: "Botiquín de viaje: lo imprescindible", texto: "Tu medicación con el prospecto, analgésico, suero oral, tiritas y protector solar. Y la receta, por si acaso.", imagen: /fotos/consejo-2.jpg }
+      - { fecha: Septiembre, titulo: "La regla 20-20-20 frente a las pantallas", texto: "Cada veinte minutos, mira a unos seis metros durante veinte segundos. Tus ojos lo notan al final del día.", imagen: /fotos/consejo-3.jpg }
+
+  preguntas:
+    activa: true
+    antetitulo: Preguntas frecuentes
+    titulo: Lo que más nos preguntáis
+    texto: "Si no encuentras tu duda, escríbenos por WhatsApp y te respondemos en el día."
+    preguntas:
+      - { pregunta: ¿La revisión de la vista tiene coste?, respuesta: "No. La revisión con el optometrista es gratuita y no te obliga a comprar nada. Pide cita para no esperar." }
+      - { pregunta: ¿Puedo recoger la medicación de otra persona?, respuesta: "Sí. Trae su tarjeta sanitaria y te dispensamos su receta electrónica como si fuera ella." }
+      - { pregunta: ¿Cómo sé qué farmacia está de guardia?, respuesta: "Nuestros turnos están en esta web. Los demás días, llámanos y te decimos cuál es la farmacia de guardia más cercana." }
+      - { pregunta: ¿Me guardáis un medicamento que no tenéis?, respuesta: "Sí. Encárgalo por WhatsApp o en el mostrador; casi siempre llega en el día y te avisamos cuando está." }
+      - { pregunta: ¿Hacéis gafas para niños?, respuesta: "Sí. Revisamos la vista de los más pequeños y tenemos monturas flexibles pensadas para ellos." }
+
+  contacto:
+    activa: true
+    antetitulo: Contacto
+    titulo: Ven a vernos o escríbenos
+    texto: "Estamos en Iturrama, a dos calles del parque. Te respondemos en horario de farmacia."
+    imagen: /fotos/contacto.jpg
+    opciones: "Farmacia; Óptica; Audiología; Ortopedia; Otra consulta"
+    horario:
+      - { dia: Lunes a viernes, horas: "9:00 a 21:30" }
+      - { dia: Sábados, horas: "9:30 a 14:00" }
+      - { dia: Domingos y festivos, horas: Según turno de guardia }

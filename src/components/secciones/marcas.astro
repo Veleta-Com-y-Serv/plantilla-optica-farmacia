@@ -1,0 +1,46 @@
+---
+// Marcas (`items`: titulo, texto): cinta de nombres enormes que corre de borde a borde entre dos líneas
+// finas, alternando letra llena y letra perfilada, con una cruz menta entre nombre y nombre. Con
+// «reducir movimiento» la cinta se queda quieta y los nombres pasan a varias líneas. Lista accesible aparte.
+import { seccion } from '../../data/site';
+import Banda from '../ui/Banda.astro';
+import Titular from '../ui/Titular.astro';
+interface Props { id: string }
+const s = seccion(Astro.props.id);
+const marcas = s ? s.items.filter((it) => it && it.titulo) : [];
+// La cinta repite los nombres hasta tener al menos 10 para que no queden huecos al correr.
+const vueltas = marcas.length ? Math.max(1, Math.ceil(10 / marcas.length)) : 0;
+const cinta = Array.from({ length: vueltas }, () => marcas).flat();
+const segundos = Math.max(24, cinta.length * 4);
+---
+
+{
+  s && (
+    <Banda id={Astro.props.id} tono="clara" sangre class="marcas">
+      <div class="contenedor">
+        <Titular partido antetitulo={s.antetitulo} titulo={s.titulo} texto={s.texto} />
+      </div>
+      {marcas.length > 0 && (
+        <>
+          <ul class="sr-only">
+            {marcas.map((m) => <li>{m.titulo}{m.texto ? `: ${m.texto}` : ''}</li>)}
+          </ul>
+          <div class="cinta" aria-hidden="true" style={`--duracion:${segundos}s`}>
+            <div class="cinta-pista">
+              {[0, 1].map((copia) => (
+                <ul class:list={['cinta-copia', { 'cinta-copia--eco': copia === 1 }]}>
+                  {cinta.map((m, i) => (
+                    <li class:list={['cinta-marca', { 'cinta-marca--perfil': i % 2 === 1, 'cinta-marca--repe': i >= marcas.length }]}>
+                      <span class="cinta-nombre">{m.titulo}</span>
+                      {m.texto && <span class="cinta-texto">{m.texto}</span>}
+                    </li>
+                  ))}
+                </ul>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
+    </Banda>
+  )
+}

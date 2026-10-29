@@ -1,0 +1,76 @@
+---
+// Servicios (`items`: titulo, texto, icono, categoria). Con dos o más categorías («Óptica», «Farmacia»…)
+// la banda se parte en columnas a sangre, una por mostrador, cada una con su tono; sin categorías, una
+// rejilla de 4 columnas con líneas finas. Debajo, si hay `galeria`, una franja de fotos de borde a borde.
+import { seccion, agrupar } from '../../data/site';
+import { altGaleria } from '../../lib/seo';
+import Banda from '../ui/Banda.astro';
+import Titular from '../ui/Titular.astro';
+import Icono from '../ui/Icono.astro';
+import Imagen from '../ui/Imagen.astro';
+interface Props { id: string }
+const s = seccion(Astro.props.id);
+const items = s ? s.items.filter((it) => it && it.titulo) : [];
+const grupos = agrupar(items);
+const partido = grupos.length >= 2 && grupos.every((g) => g.grupo);
+const tonos = ['suave', 'menta-suave', 'clara', 'suave'];
+const fotos = s ? s.galeria.slice(0, 8) : [];
+---
+
+{
+  s && (
+    <Banda id={Astro.props.id} tono="clara" sangre class="servicios">
+      <div class="contenedor">
+        <Titular partido antetitulo={s.antetitulo} titulo={s.titulo} texto={s.texto} />
+      </div>
+      {partido ? (
+        <div class={`servicios-partido n-${Math.min(grupos.length, 4)}`} style={`--n:${Math.min(grupos.length, 4)}`}>
+          {grupos.map((g, i) => (
+            <div class:list={['servicios-grupo', `tono--${tonos[i % tonos.length]}`]}>
+              <div class="servicios-grupo-dentro">
+                <p class="servicios-grupo-nombre">
+                  <span class="servicios-grupo-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                  {g.grupo}
+                </p>
+                <ul class="servicios-lista">
+                  {g.elementos.map((it) => (
+                    <li>
+                      <span class="icono-lente"><Icono nombre={it.icono} /></span>
+                      <div>
+                        <h3>{it.titulo}</h3>
+                        {it.texto && <p>{it.texto}</p>}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        items.length > 0 && (
+          <div class="contenedor">
+            <ul class="servicios-rejilla">
+              {items.map((it) => (
+                <li>
+                  <span class="icono-lente"><Icono nombre={it.icono} /></span>
+                  <h3>{it.titulo}</h3>
+                  {it.texto && <p>{it.texto}</p>}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      )}
+      {fotos.length > 0 && (
+        <ul class="franja-fotos" style={`--n:${Math.min(fotos.length, 4)}`}>
+          {fotos.map((f, i) => (
+            <li>
+              <Imagen src={f} alt={altGaleria(i)} ancho={800} alto={1000} />
+            </li>
+          ))}
+        </ul>
+      )}
+    </Banda>
+  )
+}

@@ -1,0 +1,54 @@
+---
+// Promociones (`ofertas`: titulo, texto, precio, validez). Fila 50/50 a sangre: la foto toca el borde
+// izquierdo y, a la derecha, la banda menta con las promociones en filas y el precio en una etiqueta
+// azul noche. Sin precio no hay etiqueta; sin foto, la banda menta ocupa todo el ancho en dos columnas.
+import { seccion } from '../../data/site';
+import { altSeccion } from '../../lib/seo';
+import Banda from '../ui/Banda.astro';
+import Titular from '../ui/Titular.astro';
+import Imagen from '../ui/Imagen.astro';
+import Icono from '../ui/Icono.astro';
+interface Props { id: string }
+const s = seccion(Astro.props.id);
+const ofertas = s ? s.ofertas.filter((o) => o && o.titulo) : [];
+const nota = typeof s?.nota === 'string' ? s.nota : '';
+---
+
+{
+  s && (
+    <Banda id={Astro.props.id} tono="menta" sangre sinRitmo class={s.imagen ? 'ofertas ofertas--con-foto' : 'ofertas'}>
+      {s.imagen && (
+        <div class="ofertas-foto">
+          <Imagen src={s.imagen} alt={altSeccion(s)} ancho={1200} alto={1500} />
+        </div>
+      )}
+      <div class="ofertas-cuerpo">
+        <Titular antetitulo={s.antetitulo} titulo={s.titulo} texto={s.texto} />
+        {ofertas.length > 0 && (
+          <ul class="ofertas-lista">
+            {ofertas.map((o) => (
+              <li>
+                {o.precio && <span class="ofertas-precio">{o.precio}</span>}
+                <div class="min-w-0">
+                  <h3>{o.titulo}</h3>
+                  {o.texto && <p>{o.texto}</p>}
+                  {o.validez && (
+                    <p class="ofertas-validez">
+                      <Icono nombre="reloj" tam={16} /> {o.validez}
+                    </p>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+        {nota && <p class="ofertas-nota">{nota}</p>}
+        {s.cta?.url && (
+          <a class="btn btn--noche mt-8" href={s.cta.url}>
+            {s.cta.texto} <Icono nombre="flecha" tam={18} />
+          </a>
+        )}
+      </div>
+    </Banda>
+  )
+}

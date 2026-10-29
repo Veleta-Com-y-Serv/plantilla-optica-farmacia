@@ -1,0 +1,36 @@
+---
+// Equipo (`personas`: nombre, cargo, foto, texto): titular en la banda suave y, debajo, un mosaico de
+// retratos de borde a borde sin margen (2 columnas en móvil, hasta 4 en escritorio) con el nombre sobre
+// un velo azul noche. Sin foto, la silueta de /placeholders/persona.svg.
+import { seccion } from '../../data/site';
+import Banda from '../ui/Banda.astro';
+import Titular from '../ui/Titular.astro';
+import Imagen from '../ui/Imagen.astro';
+interface Props { id: string }
+const s = seccion(Astro.props.id);
+const personas = s ? s.personas.filter((p) => p && p.nombre) : [];
+---
+
+{
+  s && (
+    <Banda id={Astro.props.id} tono="suave" sangre class={personas.length ? 'equipo equipo--con-fotos' : 'equipo'}>
+      <div class="contenedor">
+        <Titular partido antetitulo={s.antetitulo} titulo={s.titulo} texto={s.texto} />
+      </div>
+      {personas.length > 0 && (
+        <ul class="equipo-mosaico" style={`--n:${Math.min(personas.length, 4)}`}>
+          {personas.map((p) => (
+            <li>
+              <Imagen src={p.foto || '/placeholders/persona.svg'} alt={p.nombre} ancho={600} alto={800} />
+              <div class="equipo-pie">
+                <p class="equipo-nombre">{p.nombre}</p>
+                {p.cargo && <p class="equipo-cargo">{p.cargo}</p>}
+                {p.texto && <p class="equipo-texto">{p.texto}</p>}
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </Banda>
+  )
+}

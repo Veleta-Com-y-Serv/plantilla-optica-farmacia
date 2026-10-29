@@ -1,0 +1,27 @@
+---
+// Página no encontrada: banda azul noche a todo el ancho con una carta optométrica que se va borrando.
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+---
+
+<Base titulo="Página no encontrada">
+  <section class="banda banda--noche banda--ritmo">
+    <div class="contenedor grid min-h-[60svh] items-center gap-12 lg:grid-cols-2">
+      <div>
+        <p class="antetitulo">Error 404</p>
+        <h1 class="titulo-seccion">Esta página no se ve <span class="resalte">nítida</span></h1>
+        <p class="titular-texto">Puede que el enlace esté mal o que la página se haya movido. Vuelve al inicio de {site.nombre} y lo encontrarás.</p>
+        <p class="mt-10 flex flex-wrap gap-3">
+          <a class="btn" href="/">Volver al inicio</a>
+          <a class="btn-sec btn-sec--claro" href="/#contacto">Contacto</a>
+        </p>
+      </div>
+      <div class="carta" aria-hidden="true">
+        <span>404</span>
+        <span>NO ES</span>
+        <span>AQUÍ</span>
+        <span>PRUEBA OTRA</span>
+      </div>
+    </div>
+  </section>
+</Base>

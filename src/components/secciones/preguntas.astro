@@ -1,0 +1,33 @@
+---
+// Preguntas frecuentes (`preguntas`: pregunta, respuesta): banda suave a todo el ancho; titular fijo a la
+// izquierda en escritorio y acordeón nativo (<details>) con líneas finas a la derecha. Sin JavaScript.
+import { seccion } from '../../data/site';
+import Banda from '../ui/Banda.astro';
+import Titular from '../ui/Titular.astro';
+interface Props { id: string }
+const s = seccion(Astro.props.id);
+const preguntas = s ? s.preguntas.filter((p) => p && p.pregunta) : [];
+---
+
+{
+  s && preguntas.length > 0 && (
+    <Banda id={Astro.props.id} tono="suave" class="preguntas">
+      <div class="preguntas-rejilla">
+        <div class="preguntas-cabeza">
+          <Titular antetitulo={s.antetitulo} titulo={s.titulo} texto={s.texto} />
+        </div>
+        <div class="preguntas-lista">
+          {preguntas.map((p, i) => (
+            <details class="faq" open={i === 0}>
+              <summary>
+                <span>{p.pregunta}</span>
+                <span class="faq-signo" aria-hidden="true" />
+              </summary>
+              <p>{p.respuesta}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </Banda>
+  )
+}

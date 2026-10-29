@@ -1,0 +1,22 @@
+---
+// «Enfoque»: la foto a sangre desenfocada y, dentro de un círculo con graduación (la lente), nítida.
+// Es el motivo de la plantilla (hero y revisión visual). Una sola foto: la desenfocada es decorativa
+// (alt vacío) y la nítida lleva el `alt` de contenido. Centro y radio por variables CSS: --x, --y, --r.
+import Imagen from './Imagen.astro';
+interface Props { src?: string; alt: string; class?: string; prioridad?: boolean; ancho?: number; alto?: number }
+const { src, alt, class: clase = '', prioridad = false, ancho = 1600, alto = 1000 } = Astro.props;
+---
+
+<div class:list={['lente', clase]}>
+  {
+    src ? (
+      <>
+        <Imagen src={src} alt="" ancho={ancho} alto={alto} prioridad={prioridad} class="lente-foto lente-foto--borrosa" />
+        <Imagen src={src} alt={alt} ancho={ancho} alto={alto} prioridad={prioridad} class="lente-foto lente-foto--nitida" />
+      </>
+    ) : (
+      <span class="lente-vacia" aria-hidden="true" />
+    )
+  }
+  <span class="lente-aro" aria-hidden="true" />
+</div>

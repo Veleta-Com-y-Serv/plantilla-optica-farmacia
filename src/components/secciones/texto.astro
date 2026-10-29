@@ -1,0 +1,60 @@
+---
+// Apartado de texto genérico: antetítulo, título, párrafos, imagen opcional, lista y botón.
+// Lo usan los apartados nuevos que pide el cliente (site.yaml: `tipo: texto`). Con imagen, fila 50/50
+// con la foto a sangre hasta el borde izquierdo; sin imagen, título y texto en dos columnas a lo ancho.
+import { seccion, parrafos, partirTitulo } from '../../data/site';
+import { altSeccion } from '../../lib/seo';
+import Banda from '../ui/Banda.astro';
+import Imagen from '../ui/Imagen.astro';
+import Icono from '../ui/Icono.astro';
+interface Props { id: string }
+const s = seccion(Astro.props.id);
+const [cuerpo, ultima] = partirTitulo(s?.titulo);
+const items = s ? s.items.filter((it) => it && it.titulo) : [];
+---
+
+{
+  s && (
+    <Banda id={Astro.props.id} tono="clara" sangre sinRitmo={!!s.imagen} class={s.imagen ? 'texto texto--con-foto' : 'texto'}>
+      {s.imagen && (
+        <div class="texto-foto">
+          <Imagen src={s.imagen} alt={altSeccion(s)} ancho={1200} alto={900} />
+        </div>
+      )}
+      <div class="texto-cuerpo">
+        <div>
+          {s.antetitulo && <p class="antetitulo">{s.antetitulo}</p>}
+          {s.titulo && (
+            <h2 class="titulo-seccion">
+              {cuerpo}
+              <span class="resalte">{ultima}</span>
+            </h2>
+          )}
+        </div>
+        <div>
+          <div class="texto-parrafos">
+            {parrafos(s.texto).map((p) => <p>{p}</p>)}
+          </div>
+          {items.length > 0 && (
+            <ul class="texto-lista">
+              {items.map((it) => (
+                <li>
+                  <span class="icono-lente"><Icono nombre={it.icono} tam={20} /></span>
+                  <div>
+                    <p class="font-bold">{it.titulo}</p>
+                    {it.texto && <p class="opacity-80">{it.texto}</p>}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+          {s.cta?.url && (
+            <a class="btn mt-8" href={s.cta.url}>
+              {s.cta.texto} <Icono nombre="flecha" tam={18} />
+            </a>
+          )}
+        </div>
+      </div>
+    </Banda>
+  )
+}

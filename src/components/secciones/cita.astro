@@ -1,0 +1,56 @@
+---
+// Revisión visual (pedir cita): banda azul a todo el ancho; a la izquierda los pasos numerados (`items`)
+// y los botones (cta, WhatsApp y teléfono de site.yaml → contacto); a la derecha la foto a sangre con la
+// lente nítida (Lente.astro), que toca el borde de la ventana. En móvil la foto va arriba.
+import { seccion, site, tel, whatsapp } from '../../data/site';
+import { altSeccion } from '../../lib/seo';
+import Banda from '../ui/Banda.astro';
+import Titular from '../ui/Titular.astro';
+import Lente from '../ui/Lente.astro';
+import Icono from '../ui/Icono.astro';
+interface Props { id: string }
+const s = seccion(Astro.props.id);
+const c = site.contacto;
+const pasos = s ? s.items.filter((it) => it && it.titulo) : [];
+---
+
+{
+  s && (
+    <Banda id={Astro.props.id} tono="azul" sangre sinRitmo class={s.imagen ? 'cita cita--con-foto' : 'cita'}>
+      <div class="cita-cuerpo">
+        <Titular antetitulo={s.antetitulo} titulo={s.titulo} texto={s.texto} />
+        {pasos.length > 0 && (
+          <ol class="cita-pasos">
+            {pasos.map((p, i) => (
+              <li>
+                <span class="cita-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                <div>
+                  <h3>{p.titulo}</h3>
+                  {p.texto && <p>{p.texto}</p>}
+                </div>
+              </li>
+            ))}
+          </ol>
+        )}
+        <div class="cita-botones">
+          {s.cta?.url && (
+            <a class="btn" href={s.cta.url}>
+              {s.cta.texto} <Icono nombre="flecha" tam={18} />
+            </a>
+          )}
+          {c.whatsapp && (
+            <a class="btn-sec btn-sec--claro" href={whatsapp(c.whatsapp, 'Hola, quiero pedir cita para revisarme la vista')} rel="noopener" target="_blank">
+              <Icono nombre="whatsapp" tam={20} /> WhatsApp
+            </a>
+          )}
+          {c.telefono && (
+            <a class="btn-sec btn-sec--claro" href={tel(c.telefono)}>
+              <Icono nombre="telefono" tam={20} /> {c.telefono}
+            </a>
+          )}
+        </div>
+      </div>
+      {s.imagen && <Lente src={s.imagen} alt={altSeccion(s)} ancho={1200} alto={1400} class="cita-lente" />}
+    </Banda>
+  )
+}
