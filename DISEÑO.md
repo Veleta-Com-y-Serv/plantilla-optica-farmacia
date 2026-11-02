@@ -58,3 +58,8 @@ titular fijo. Desde 1180: menú en línea. A 1440: servicios con 2 columnas por 
 - [ ] Fotos de `fotos.json` y previews definitivas (`preview/card.jpg`, `preview/full.jpg`) con `tools/plantillas/previews.mjs` (las de ahora salen con los placeholders).
 - [ ] Repo `Veleta-Com-y-Serv/plantilla-optica-farmacia` con la etiqueta `v1.0.0`.
 - [ ] En la plataforma: `config/plantillas.php` (`repos` y `refs`) y `php artisan plantillas:sync --demos`.
+
+## Páginas propias (fichas)
+Con la misma piel que la portada: cabecera y pie de la plantilla, migas (Inicio › Sección › Elemento), hero con la foto del
+elemento (sin foto, su icono), `detalle` en párrafos, tabla de datos, caja de contacto, galería (`imagenes`) y otros elementos
+de la misma lista.

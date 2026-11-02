@@ -55,10 +55,55 @@ secciones:
     titulo: Dos mostradores, el mismo cuidado
     texto: "A un lado, la farmacia de siempre del barrio. Al otro, una óptica con gabinete de optometría y audiología. Entras por la misma puerta."
     items:
-      - { titulo: Graduación de la vista, texto: "Revisión completa con optometrista colegiado, para adultos y niños.", icono: ojo, categoria: Óptica }
-      - { titulo: Gafas graduadas y de sol, texto: "Monturas de acetato y titanio, lentes progresivas y filtros para pantallas.", icono: gafas, categoria: Óptica }
-      - { titulo: Lentes de contacto, texto: "Adaptación, prueba y seguimiento de lentillas diarias, mensuales y de noche.", icono: lentilla, categoria: Óptica }
-      - { titulo: Audiología y audífonos, texto: "Prueba de audición, adaptación de audífonos y limpieza de los que ya llevas.", icono: oido, categoria: Óptica }
+      - titulo: Graduación de la vista
+        texto: "Revisión completa con optometrista colegiado, para adultos y niños."
+        icono: ojo
+        categoria: Óptica
+        detalle: |
+          La graduación se hace en un gabinete propio, con el optometrista sentado a tu lado y sin prisas. Empezamos preguntándote cómo ves en tu día a día: si trabajas con pantallas, si conduces de noche, si los niños se acercan demasiado a los libros o si has notado dolor de cabeza al final de la jornada.
+
+          Después hacemos las pruebas de agudeza visual, visión de cerca y de lejos, y exploramos cómo trabajan juntos tus dos ojos. Vamos explicándote cada prueba y qué mide, para que entiendas el resultado y no solo recibas un papel con números.
+
+          Si la revisión es de un niño, adaptamos las pruebas a su edad y las convertimos en un pequeño juego. Es la mejor manera de detectar a tiempo un defecto que en el colegio puede pasar por falta de atención.
+
+          Al terminar te entregamos la graduación por escrito. Puedes elegir tus gafas con nosotros, llevártela a otra óptica o simplemente quedarte tranquilo. La revisión no compromete a ninguna compra.
+      - titulo: Gafas graduadas y de sol
+        texto: "Monturas de acetato y titanio, lentes progresivas y filtros para pantallas."
+        icono: gafas
+        categoria: Óptica
+        detalle: |
+          Elegir unas gafas es mitad técnica y mitad gusto. Primero miramos tu graduación y el uso que les vas a dar, y a partir de ahí te proponemos las lentes adecuadas: monofocales, progresivas, para oficina o con filtro para pantallas y conducción.
+
+          Después llega la parte más divertida, la montura. Tenemos acetato, titanio y metal ligero, para caras y estilos muy distintos. Te las probamos con calma, comparamos y te decimos con sinceridad cuáles te favorecen y cuáles no.
+
+          Una vez elegidas, el óptico toma las medidas con precisión: altura de pupila, distancia al ojo y ángulo de la montura. En las lentes progresivas es lo que marca la diferencia entre acostumbrarse en unos días o pasarse semanas incómodo.
+
+          Cuando están listas, te las entregamos ajustadas a tu cara y te explicamos cómo limpiarlas y cuidarlas. Si más adelante se aflojan o se tuercen, pasa por el mostrador y las ajustamos sin coste.
+      - titulo: Lentes de contacto
+        texto: "Adaptación, prueba y seguimiento de lentillas diarias, mensuales y de noche."
+        icono: lentilla
+        categoria: Óptica
+        detalle: |
+          Ponerse lentillas por primera vez impresiona, y por eso lo hacemos de forma tranquila y acompañada. Empezamos con una revisión para saber si tus ojos y tus lágrimas son buenos candidatos y qué tipo de lente te conviene más.
+
+          Después te enseñamos, con un espejo y paciencia, a ponértelas y quitártelas. Nadie sale del gabinete sin haberlo hecho solo, y te llevas unas lentes de prueba para que las uses unos días antes de decidir.
+
+          Trabajamos con lentillas diarias, mensuales y de uso nocturno, además de lentes para astigmatismo y para vista cansada. Te explicamos las diferencias para que elijas la que mejor encaja con tu rutina, tu comodidad y tu bolsillo.
+
+          El seguimiento es parte del servicio. Volvemos a revisarte pasado un tiempo para comprobar que el ojo está sano y que la lente sigue siendo la adecuada, y te recordamos cuándo toca la siguiente revisión.
+      - titulo: Audiología y audífonos
+        texto: "Prueba de audición, adaptación de audífonos y limpieza de los que ya llevas."
+        icono: oido
+        categoria: Óptica
+        imagenes: "/fotos/franja-1.jpg; /fotos/franja-2.jpg; /fotos/franja-3.jpg"
+        detalle: |
+          Perder oído suele ocurrir poco a poco, y casi siempre lo nota antes la familia que uno mismo. Si te cuesta seguir una conversación en un restaurante o subes el volumen de la televisión, una prueba de audición te saca de dudas en poco tiempo.
+
+          La hace nuestro audioprotesista en una cabina silenciosa. Escuchas una serie de sonidos con unos auriculares y con ello dibujamos tu audiograma. Te lo explicamos de forma sencilla, sin tecnicismos, y te decimos con claridad si necesitas ayuda o no.
+
+          Si hace falta un audífono, te enseñamos los modelos que encajan con tu pérdida, con tu estilo de vida y con lo que quieres gastar. Los hay muy discretos y fáciles de manejar. Los ajustamos en el mostrador y los vamos afinando en las siguientes visitas.
+
+          Para quien ya lleva audífonos, ofrecemos limpieza y revisión, sea cual sea la marca. Un audífono bien mantenido suena mejor y dura mucho más.
       - { titulo: Receta electrónica y encargos, texto: "Dispensación con tu tarjeta sanitaria y encargos que llegan en el día.", icono: receta, categoria: Farmacia }
       - { titulo: Consejo y seguimiento, texto: "Toma de tensión, control de glucosa y revisión de tu medicación.", icono: corazon, categoria: Farmacia }
       - { titulo: Dermofarmacia y nutrición, texto: "Cuidado de la piel, protección solar e infantil, con muestras para probar.", icono: hoja, categoria: Farmacia }

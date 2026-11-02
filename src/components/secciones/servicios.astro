@@ -2,7 +2,9 @@
 // Servicios (`items`: titulo, texto, icono, categoria). Con dos o más categorías («Óptica», «Farmacia»…)
 // la banda se parte en columnas a sangre, una por mostrador, cada una con su tono; sin categorías, una
 // rejilla de 4 columnas con líneas finas. Debajo, si hay `galeria`, una franja de fotos de borde a borde.
+// Los servicios con `detalle` tienen página propia (/servicios/<slug>/): el título es un enlace que cubre la fila.
 import { seccion, agrupar } from '../../data/site';
+import { enlaceDe } from '../../lib/paginas';
 import { altGaleria } from '../../lib/seo';
 import Banda from '../ui/Banda.astro';
 import Titular from '../ui/Titular.astro';
@@ -37,8 +39,9 @@ const fotos = s ? s.galeria.slice(0, 8) : [];
                     <li>
                       <span class="icono-lente"><Icono nombre={it.icono} /></span>
                       <div>
-                        <h3>{it.titulo}</h3>
+                        <h3>{enlaceDe(it) ? <a href={enlaceDe(it)} class="servicios-enlace">{it.titulo}</a> : it.titulo}</h3>
                         {it.texto && <p>{it.texto}</p>}
+                        {enlaceDe(it) && <span class="servicios-ver" aria-hidden="true">Ver más <Icono nombre="flecha" tam={16} /></span>}
                       </div>
                     </li>
                   ))}
@@ -54,8 +57,9 @@ const fotos = s ? s.galeria.slice(0, 8) : [];
               {items.map((it) => (
                 <li>
                   <span class="icono-lente"><Icono nombre={it.icono} /></span>
-                  <h3>{it.titulo}</h3>
+                  <h3>{enlaceDe(it) ? <a href={enlaceDe(it)} class="servicios-enlace">{it.titulo}</a> : it.titulo}</h3>
                   {it.texto && <p>{it.texto}</p>}
+                  {enlaceDe(it) && <span class="servicios-ver" aria-hidden="true">Ver más <Icono nombre="flecha" tam={16} /></span>}
                 </li>
               ))}
             </ul>

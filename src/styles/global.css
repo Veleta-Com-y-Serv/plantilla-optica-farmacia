@@ -168,7 +168,14 @@
   .servicios-grupo-nombre { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; font-family: var(--fuente-titulos); font-size: clamp(2.5rem, 5.2vw, 4.75rem); font-weight: 800; letter-spacing: -0.045em; line-height: 1; }
   .servicios-grupo-num { font-size: .78rem; letter-spacing: .14em; font-weight: 700; color: var(--c-primario); border: 1.5px solid currentColor; border-radius: 999px; padding: .2rem .6rem; }
   .servicios-lista { display: grid; column-gap: 2.5rem; }
-  .servicios-lista li { display: flex; gap: 1.1rem; padding-block: 1.35rem; border-top: 1px solid var(--linea); }
+  .servicios-lista li { position: relative; display: flex; gap: 1.1rem; padding-block: 1.35rem; border-top: 1px solid var(--linea); }
+  .servicios-rejilla li { position: relative; }
+  .servicios-enlace { color: inherit; text-decoration: none; }
+  .servicios-enlace::after { content: ""; position: absolute; inset: 0; }
+  .servicios-enlace:focus-visible { outline: none; }
+  .servicios-lista li:has(.servicios-enlace:focus-visible), .servicios-rejilla li:has(.servicios-enlace:focus-visible) { outline: 2px solid var(--c-primario); outline-offset: -2px; }
+  .servicios-enlace:hover { text-decoration: underline; text-underline-offset: .2em; }
+  .servicios-ver { display: inline-flex; align-items: center; gap: .3rem; margin-top: .5rem; font-weight: 700; font-size: .95rem; color: var(--c-primario); }
   .servicios-lista h3, .servicios-rejilla h3 { font-size: 1.2rem; letter-spacing: -0.015em; }
   .servicios-lista p, .servicios-rejilla p { margin-top: .35rem; opacity: .78; font-size: 1rem; }
   @media (min-width: 1024px) {
