@@ -2,6 +2,7 @@
 // Página no encontrada: banda azul noche a todo el ancho con una carta optométrica que se va borrando.
 import Base from '../layouts/Base.astro';
 import { site } from '../data/site';
+import { enlace } from '../lib/multipagina';
 ---
 
 <Base titulo="Página no encontrada">
@@ -13,7 +14,7 @@ import { site } from '../data/site';
         <p class="titular-texto">Puede que el enlace esté mal o que la página se haya movido. Vuelve al inicio de {site.nombre} y lo encontrarás.</p>
         <p class="mt-10 flex flex-wrap gap-3">
           <a class="btn" href="/">Volver al inicio</a>
-          <a class="btn-sec btn-sec--claro" href="/#contacto">Contacto</a>
+          <a class="btn-sec btn-sec--claro" href={enlace('/#contacto')}>Contacto</a>
         </p>
       </div>
       <div class="carta" aria-hidden="true">
